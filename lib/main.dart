@@ -32,6 +32,6 @@ Future<void> main() async {
   // Inisialisasi sesi setelah UI tampil.
   await Future.wait([
     authProvider.init(),
-    Future<void>.delayed(const Duration(milliseconds: 1200)),
+    Future<void>.delayed(const Duration(milliseconds: 3000)),
   ]);
 }
