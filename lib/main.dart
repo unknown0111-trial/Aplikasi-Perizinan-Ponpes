@@ -2,6 +2,8 @@ import 'package:material_ui/material_ui.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
 
+import 'dart:async';
+
 import 'data/repositories/notifikasi_repository.dart';
 import 'app.dart';
 import 'data/datasources/database_helper.dart';
@@ -30,8 +32,7 @@ Future<void> main() async {
   );
 
   // Inisialisasi sesi setelah UI tampil.
-  await Future.wait([
-    authProvider.init(),
-    Future<void>.delayed(const Duration(milliseconds: 3000)),
-  ]);
+  // Inisialisasi sesi setelah UI tampil.
+  // Inisialisasi sesi setelah UI tampil.
+  unawaited(authProvider.init());
 }

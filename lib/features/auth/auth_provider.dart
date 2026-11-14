@@ -22,9 +22,16 @@ class AuthProvider extends ChangeNotifier {
   UserRole? get role => _user?.role;
 
   /// Dipanggil sekali saat aplikasi dibuka.
+  /// Dipanggil sekali saat aplikasi dibuka.
   Future<void> init() async {
-    _user = await _repo.restoreSession();
+    final hasil = await Future.wait([
+      _repo.restoreSession(),
+      Future<void>.delayed(const Duration(seconds: 3)),
+    ]);
+
+    _user = hasil[0] as AppUser?;
     _status = _user == null ? AuthStatus.loggedOut : AuthStatus.loggedIn;
+
     notifyListeners();
   }
 
